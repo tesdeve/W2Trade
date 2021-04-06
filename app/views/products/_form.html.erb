@@ -1,0 +1,92 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor_usd %>
+    <%= form.text_field :valor_usd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor_cop %>
+    <%= form.text_field :valor_cop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :impuesto %>
+    <%= form.text_field :impuesto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seguro %>
+    <%= form.text_field :seguro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flete %>
+    <%= form.text_field :flete %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aduana %>
+    <%= form.text_field :aduana %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_envio_usd %>
+    <%= form.text_field :total_envio_usd %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_envio_cop %>
+    <%= form.text_field :total_envio_cop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :action %>
+    <%= form.text_field :action %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bought %>
+    <%= form.check_box :bought %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor_maximo_cop %>
+    <%= form.text_field :valor_maximo_cop %>
+  </div>
+
+  <div class="field">
+    <%= form.label :peso %>
+    <%= form.text_field :peso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_cost %>
+    <%= form.text_field :total_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exchange_rate %>
+    <%= form.text_field :exchange_rate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

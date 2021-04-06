@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Valor usd:</strong>
+  <%= @product.valor_usd %>
+</p>
+
+<p>
+  <strong>Valor cop:</strong>
+  <%= @product.valor_cop %>
+</p>
+
+<p>
+  <strong>Impuesto:</strong>
+  <%= @product.impuesto %>
+</p>
+
+<p>
+  <strong>Seguro:</strong>
+  <%= @product.seguro %>
+</p>
+
+<p>
+  <strong>Flete:</strong>
+  <%= @product.flete %>
+</p>
+
+<p>
+  <strong>Aduana:</strong>
+  <%= @product.aduana %>
+</p>
+
+<p>
+  <strong>Total envio usd:</strong>
+  <%= @product.total_envio_usd %>
+</p>
+
+<p>
+  <strong>Total envio cop:</strong>
+  <%= @product.total_envio_cop %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @product.action %>
+</p>
+
+<p>
+  <strong>Bought:</strong>
+  <%= @product.bought %>
+</p>
+
+<p>
+  <strong>Valor maximo cop:</strong>
+  <%= @product.valor_maximo_cop %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @product.peso %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @product.total_cost %>
+</p>
+
+<p>
+  <strong>Exchange rate:</strong>
+  <%= @product.exchange_rate %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
