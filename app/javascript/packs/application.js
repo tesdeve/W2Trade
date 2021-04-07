@@ -15,7 +15,7 @@ ActiveStorage.start()
 // To add Bootstrap and enable tooltips and popovers everywere. From HERE
 
 import * as bootstrap from 'bootstrap'
-import "../stylesheets/application"
+import "../stylesheets/application.scss"
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -56,6 +56,9 @@ window.addEventListener('load', () => {
 // FINIDH SERVICE WORKER REGISTRATION
 
 
+// self.addEventListener('install', function(event) {
+//   self.skipWaiting();
+// });
 
 
 
