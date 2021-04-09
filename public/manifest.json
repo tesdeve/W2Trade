@@ -1,11 +1,12 @@
 {
-  "name": "WTrades",
-  "short_name": "WT",
+  "name": "W2Trade",
+  "short_name": "W2T",
   "lang": "en",
   "start_url": "/",
   "scope": "/",
   "background_color": "#3E4EB8",
   "display": "standalone",
+  "description": "Buyer decision maker",
   "theme_color": "#070bf5",
   "icons": [
     {
