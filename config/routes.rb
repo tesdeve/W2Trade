@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products
 
-  get 'offline', to: 'home#offline', as: :offline
+  #get 'offline', to: 'home#offline', as: :offline
 
 end

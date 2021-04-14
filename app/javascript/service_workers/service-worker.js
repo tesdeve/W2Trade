@@ -1,3 +1,23 @@
+console.log('Service Worker!!!!' );
+
+
+import {registerRoute} from 'workbox-routing';
+import {CacheFirst} from 'workbox-strategies';
+
+registerRoute(
+  ({request}) => true,
+  new CacheFirst({
+    cacheName: 'static-resources',
+  })
+);
+
+
+
+
+
+
+
+
 // self.addEventListener('install', function(event) {
 //     console.log('Service Worker installing.');
 // });
@@ -10,54 +30,56 @@
 // });
 
 
-const OFFLINE_VERSION = 1;
-const CACHE_NAME = 'offline';
-const OFFLINE_URL = 'offline';
+//LATEST BEFORE THE CURRENT ONE
 
-self.addEventListener('install', function (event) {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    // Setting {cache: 'reload'} in the new request will ensure that the response
-    // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-    await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
-  })());
-});
+// const OFFLINE_VERSION = 1;
+// const CACHE_NAME = 'offline';
+// const OFFLINE_URL = 'offline';
 
-self.addEventListener('activate', async function (event) {
-  event.waitUntil((async () => {
-  // Enable navigation preload if it's supported.
-  // See https://developers.google.com/web/updates/2017/02/navigation-preload
-    if ('navigationPreload' in self.registration) {
-      await self.registration.navigationPreload.enable();
-    }
-  })());
+// self.addEventListener('install', function (event) {
+//   event.waitUntil((async () => {
+//     const cache = await caches.open(CACHE_NAME);
+//     // Setting {cache: 'reload'} in the new request will ensure that the response
+//     // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
+//     await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
+//   })());
+// });
 
-  // Tell the active service worker to take control of the page immediately.
-  self.clients.claim();
-});
+// self.addEventListener('activate', async function (event) {
+//   event.waitUntil((async () => {
+//   // Enable navigation preload if it's supported.
+//   // See https://developers.google.com/web/updates/2017/02/navigation-preload
+//     if ('navigationPreload' in self.registration) {
+//       await self.registration.navigationPreload.enable();
+//     }
+//   })());
 
-self.addEventListener('fetch', function (event) {
-  // We only want to call event.respondWith() if this is a navigation request
-  // for an HTML page.
-    event.respondWith((async () => {
-      try {
-        // First, try to use the navigation preload response if it's supported.
-        const preloadResponse = await event.preloadResponse;
-        if (preloadResponse) {
-          return preloadResponse;
-        }
+//   // Tell the active service worker to take control of the page immediately.
+//   self.clients.claim();
+// });
 
-        return await caches.match(event.request) || await fetch(event.request);
-      } catch (error) {
-        // catch is only triggered if an exception is thrown, which is likely
-        // due to a network error.
-        // If fetch() returns a valid HTTP response with a response code in
-        // the 4xx or 5xx range, the catch() will NOT be called.
-        console.log('Fetch failed; returning offline page instead.', error);
+// self.addEventListener('fetch', function (event) {
+//   // We only want to call event.respondWith() if this is a navigation request
+//   // for an HTML page.
+//     event.respondWith((async () => {
+//       try {
+//         // First, try to use the navigation preload response if it's supported.
+//         const preloadResponse = await event.preloadResponse;
+//         if (preloadResponse) {
+//           return preloadResponse;
+//         }
 
-        const cache = await caches.open(CACHE_NAME);
-        const cachedResponse = await cache.match(OFFLINE_URL);
-        return cachedResponse;
-      }
-    })());
-});
+//         return await caches.match(event.request) || await fetch(event.request);
+//       } catch (error) {
+//         // catch is only triggered if an exception is thrown, which is likely
+//         // due to a network error.
+//         // If fetch() returns a valid HTTP response with a response code in
+//         // the 4xx or 5xx range, the catch() will NOT be called.
+//         console.log('Fetch failed; returning offline page instead.', error);
+
+//         const cache = await caches.open(CACHE_NAME);
+//         const cachedResponse = await cache.match(OFFLINE_URL);
+//         return cachedResponse;
+//       }
+//     })());
+// });
