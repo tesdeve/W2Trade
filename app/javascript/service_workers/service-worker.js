@@ -1,13 +1,61 @@
-console.log('Service Worker!!!!' );
+import { registerRoute } from 'workbox-routing';
+import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import { ExpirationPlugin } from 'workbox-expiration';
 
-
-import {registerRoute} from 'workbox-routing';
-import {CacheFirst} from 'workbox-strategies';
-
+// Loading pages (and turbolinks requests), checks the network first
 registerRoute(
-  ({request}) => true,
+  ({request}) => request.destination === "document" || (
+    request.destination === "" &&
+    request.mode === "cors" &&
+    request.headers.get('Turbolinks-Referrer') !== null
+  ),
+  new NetworkFirst({
+    cacheName: 'documents',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 5,
+        maxAgeSeconds: 5 * 60, // 5 minutes
+      }),
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
+);
+
+// For CSS & JS, we check the cache first
+registerRoute(
+  ({request}) => request.destination === "script" ||
+  request.destination === "style",
   new CacheFirst({
-    cacheName: 'static-resources',
+    cacheName: 'assets-styles-and-scripts',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 5,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+      }),
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
+);
+
+// For Images, we check the cache first
+registerRoute(
+  ({request}) => request.destination === "image",
+  new CacheFirst({
+    cacheName: 'assets-images',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 5,
+        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+      }),
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
   })
 );
 
@@ -15,8 +63,24 @@ registerRoute(
 
 
 
+//LATEST BEFORE THE CURRENT ONE
 
 
+// console.log('Service Worker!!!!' );
+// 
+// 
+// import {registerRoute} from 'workbox-routing';
+// import {CacheFirst} from 'workbox-strategies';
+// 
+// registerRoute(
+//   ({request}) => true,
+//   new CacheFirst({
+//     cacheName: 'static-resources',
+//   })
+// );
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 // self.addEventListener('install', function(event) {
 //     console.log('Service Worker installing.');
@@ -30,7 +94,9 @@ registerRoute(
 // });
 
 
-//LATEST BEFORE THE CURRENT ONE
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 2nd Change
 
 // const OFFLINE_VERSION = 1;
 // const CACHE_NAME = 'offline';
@@ -83,3 +149,10 @@ registerRoute(
 //       }
 //     })());
 // });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
