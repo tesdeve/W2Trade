@@ -1,92 +1,64 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
+<div class="primerForm">
+<%= form_with(model: @product ) do |form| %>
+  <% if @product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="cardInitial">
+    <div class="card ">
+      <div class="headerInitial">
+        <div class="logo text-center"> 
+            <%= image_pack_tag("WTradelogo-2.png", width: "120", height: "100", :alt => "WTrade Logo") %>
+        </div>
+        <h1 class="text-center mb-1 initialTitle">Calculate New Product </h1>
+      </div>
+      <div class="row mb-mr exchangeRates">          
+        <%= form.label :exchange_rate, "Exchange Rate (USD-COP)", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
+          <%= form.text_field :exchange_rate, :value =>"#{@rate}", :class=> "form-control form-control-lg " %>  
+        </div>   
+      </div>
+      <div class="row mb-mr">
+        <%= form.label :valor_maximo_cop, "Maximum Value COP", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>              
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
+          <%= form.text_field :valor_usd, :class=> "form-control form-control-lg " %>  
+        </div>   
+      </div>
+      <div class="row mb-mr"> 
+        <%= form.label :valor_usd, "Producto Value USD", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
+          <%= form.text_field :valor_usd, :class=> "form-control form-control-lg " %>  
+        </div>
+      </div>
+      <div class="row mb-mr">
+        <%= form.label :peso, "Weight (lb)", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
+          <%= form.text_field :peso, :class=> "form-control form-control-lg " %>  
+        </div>
+      </div>
+      <div class="row mb-mr"> 
+        <%= form.label :name, "Product Name", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input"> 
+            <%= form.text_field :name, :class=> "form-control form-control-lg " %>  
+        </div>
+      </div>
+        <br>
+      <div class="row margins justify-content-center">           
+        <%= link_to 'Products', products_path, :class=> "btn btn-primary back col-sm-5", :remote => true %>
+        <%= form.submit "Calculate", :class=> "btn btn-success check col-sm-5", :remote => true %>
+      </div>
+    <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :valor_usd %>
-    <%= form.text_field :valor_usd %>
-  </div>
 
-  <div class="field">
-    <%= form.label :valor_cop %>
-    <%= form.text_field :valor_cop %>
-  </div>
 
-  <div class="field">
-    <%= form.label :impuesto %>
-    <%= form.text_field :impuesto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :seguro %>
-    <%= form.text_field :seguro %>
-  </div>
-
-  <div class="field">
-    <%= form.label :flete %>
-    <%= form.text_field :flete %>
-  </div>
-
-  <div class="field">
-    <%= form.label :aduana %>
-    <%= form.text_field :aduana %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_envio_usd %>
-    <%= form.text_field :total_envio_usd %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_envio_cop %>
-    <%= form.text_field :total_envio_cop %>
-  </div>
-
-  <div class="field">
-    <%= form.label :action %>
-    <%= form.text_field :action %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bought %>
-    <%= form.check_box :bought %>
-  </div>
-
-  <div class="field">
-    <%= form.label :valor_maximo_cop %>
-    <%= form.text_field :valor_maximo_cop %>
-  </div>
-
-  <div class="field">
-    <%= form.label :peso %>
-    <%= form.text_field :peso %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_cost %>
-    <%= form.text_field :total_cost %>
-  </div>
-
-  <div class="field">
-    <%= form.label :exchange_rate %>
-    <%= form.text_field :exchange_rate %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
