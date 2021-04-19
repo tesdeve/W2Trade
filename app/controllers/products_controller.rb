@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
+  
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_open_ssl, only: [:new, :edit]
 
+  require 'nokogiri'
+  require 'open-uri'
+  
   # GET /products or /products.json
   def index
     @products = Product.all
@@ -61,6 +66,12 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+
+    def set_open_ssl
+      require 'openssl'
+      doc = Nokogiri::HTML(URI.open('https://freecurrencyrates.com/en/convert-USD-COP', :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
+      @rate = doc.css('span.src-entry-to').text 
+    end    
 
     # Only allow a list of trusted parameters through.
     def product_params

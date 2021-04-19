@@ -12,6 +12,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
+require.context('../images', true)
+
+
 // To add Bootstrap and enable tooltips and popovers everywere. From HERE
 
 import * as bootstrap from 'bootstrap'
@@ -33,26 +37,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // TO HERE BOOTSTRAP PART
 
 // SERVICE WORKER REGISTRATION
+require("service_workers")
 
-window.addEventListener('load', () => {
-  navigator.serviceWorker.register('/service-worker.js').then(registration => {
-    console.log('ServiceWorker registered: ', registration);
-
-    var serviceWorker;
-    if (registration.installing) {
-      serviceWorker = registration.installing;
-      console.log('Service worker installing.');
-    } else if (registration.waiting) {
-      serviceWorker = registration.waiting;
-      console.log('Service worker installed & waiting.');
-    } else if (registration.active) {
-      serviceWorker = registration.active;
-      console.log('Service worker active.');
-    }
-  }).catch(registrationError => {
-    console.log('Service worker registration failed: ', registrationError);
-  });
-});
+//window.addEventListener('load', () => {
+//  navigator.serviceWorker.register('/service-worker.js').then(registration => {
+//    console.log('ServiceWorker registered: ', registration);
+//
+//    var serviceWorker;
+//    if (registration.installing) {
+//      serviceWorker = registration.installing;
+//      console.log('Service worker installing.');
+//    } else if (registration.waiting) {
+//      serviceWorker = registration.waiting;
+//      console.log('Service worker installed & waiting.');
+//    } else if (registration.active) {
+//      serviceWorker = registration.active;
+//      console.log('Service worker active.');
+//    }
+//  }).catch(registrationError => {
+//    console.log('Service worker registration failed: ', registrationError);
+//  });
+//});
 // FINIDH SERVICE WORKER REGISTRATION
 
 
