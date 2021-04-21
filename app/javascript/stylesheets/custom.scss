@@ -1,6 +1,5 @@
 .table th{
   text-align: center;
-  color: red
 }
 
 .container2 {
@@ -51,7 +50,7 @@
 }
 
 .newComponent {
-    padding-right: 25px;
+  padding-right: 25px;
 
 }
 
@@ -75,6 +74,11 @@
   margin-left: 40%;
 }
 
+
+.exchange-rates {
+  margin-top: 8% !important;
+}
+
 .mb-mr {
   margin-bottom: 10%;
   margin-right: 5% !important;
@@ -82,7 +86,7 @@
 
 
 #product_exchange_rate, #product_valor_maximo_cop, #product_valor_usd, #product_peso, #product_name{
-    text-align: center;
+  text-align: center;
 }
 
 
@@ -92,30 +96,36 @@ input#product_exchange_rate{
 
 
 .col-sm-6.col-form-label {
-    text-align: right;
+  text-align: right;
 }
 
+
+// SHOW //
+.justifying-show-label {
+    justify-content: flex-end !important;
+    //width: 0 !important;
+    //margin-left: 10% 
+}
+
+.product_action {
+  color: green;
+}
+
+.product_action2 {
+  color: red;
+}
+
+// SHOW END //
 
 input#product_exchange_rate, input#product_valor_maximo_cop, input#product_valor_usd, input#product_peso,  input#product_name{
     text-align: center;
     border-bottom-color: #fff;
 }
 
-
-.form-group.row.row-values {
-    //margin-left: 10% !important;
-}
-
 .actions {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
-/*.btn.btn-success {
-  //background-color: #15a815!important;
-  //width: 35%;
-  font-size: 1.3rem
-}*/
 
 .back-products {
   //background-color: black !important;
@@ -135,7 +145,6 @@ input#product_exchange_rate, input#product_valor_maximo_cop, input#product_valor
   width: 15%;
 }
 
-
 .btn.btn-primary.edit {
   background-color: yellow !important;
   color: black !important;
@@ -146,23 +155,16 @@ input#product_exchange_rate, input#product_valor_maximo_cop, input#product_valor
   background-color: black !important;
   color: white !important;
   border-color: black !important;
-  //font-size: 1.3rem;
-}
-
-
-.check {
-    //font-size: 1.4rem !important;
-    //width: 30%;
 }
 
 .showButtons{
-   margin-left: 30%;
+  margin-left: 30%;
 }
 
 
 
 .card.cardShow {
-    margin-top: 9%;
+  margin-top: 9%;
 }
 
 .showTitle {
@@ -172,27 +174,19 @@ input#product_exchange_rate, input#product_valor_maximo_cop, input#product_valor
   color: white;
 }
 
-.datos_ingresados, .datosCalculados, .en_resumen{
-    margin-left: 40%;
-}
-
-
 .add_subs {
   margin-top: 2.5rem;
 }
 
 .submitbutton {
-   margin-top: 8.5%;
-   padding-bottom: 5%;
-   
+  margin-top: 8.5%;
+  padding-bottom: 5%;
 }
-
 
 .btn-submitbutton {
   color:white !important;
   background-color:#0844f9 !important;
 }
-
 
 .buttonEdit {
   margin-top: 5%;
@@ -210,8 +204,6 @@ input#product_exchange_rate, input#product_valor_maximo_cop, input#product_valor
 .back {
   width: 30%;
 }
-
-
 
 .showBack {
   margin-left: 3%;
@@ -265,7 +257,7 @@ div#newProduct {
 }
 
 
-.check{
+.check, .edit{
   margin-left: 7%;
 }
 
@@ -300,12 +292,8 @@ div#newProduct {
   text-align: center;
 }
 
-.datos_ingresados, .datosCalculados, .en_resumen{
-    margin-left: 15%;
-}
 
   #product_exchange_rate, #product_valor_maximo_cop, #product_valor_usd, #product_peso, #product_name {
-    //margin-left: 30% !important;
     font-size: 1.2rem !important;
   }
 
@@ -332,13 +320,20 @@ div#newProduct {
     margin: 0% !important;
 }
 
-.exchangeRate {
-  margin-top: 10% !important;
+
+.exchange-rates {
+  margin-top: 15% !important;
+  color: red!important;
 }
+
+
 .justifying {
   justify-content: center;
 }
 
+.col-form-label {
+  color: red!important;
+}
 
 .form-control {
     width: 70% !important;
@@ -354,6 +349,16 @@ div#newProduct {
   margin-left: 5% !important;
   margin-right: 5% !important;
 }
+
+// SHOW //
+.justifying-show-label {
+    //justify-content: flex-start !important;
+    //width: 0 !important;
+    margin-left: 6% !important;
+}
+
+
+// SHOW END //
 
 
 }
@@ -462,7 +467,7 @@ div#newProduct {
   .mb-mr {
     margin-right: 5% !important;
     margin-left: 2% !important;
-}
+  }
 
   .col-form-label-lg, .form-control {
       font-size: 1.055rem !important;

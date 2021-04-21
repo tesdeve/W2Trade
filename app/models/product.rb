@@ -61,9 +61,9 @@ class Product < ApplicationRecord
   #
   def set_action
     if set_total_cost <= valor_maximo_cop
-      self.accion = "COMPRAR"
+      self.action = "BUY"
     else
-      self.accion = "NO COMPRAR"
+      self.action = "DON'T BUY"
     end
   end
 
