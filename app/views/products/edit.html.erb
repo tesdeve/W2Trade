@@ -1,6 +1,6 @@
-<h1>Editing Product</h1>
-
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="row margins justify-content-center"> 
+	<%= link_to 'Back to Products', products_path, :class=> "btn btn-primary back col-sm-5"%>
+	<%= link_to 'Showss', @product, :class=> "btn btn-primary edit col-sm-5" %> 
+</div>
