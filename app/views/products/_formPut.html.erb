@@ -1,5 +1,5 @@
-<div class="primerForm" id="primerForm">
-<%= form_with(model: @product, local: false) do |form| %>
+<div class="updateForm" id="updateForm">
+  <%= form_with(model: @product, method: :put, local: false) do |form| %>  
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,15 +11,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="cardInitial">
-    <div class="card ">
-      <div class="headerInitial">
+   
+  <div class="cardInitial22">
+    <div class="card">
+     <div class="headerInitial">
         <div class="logo text-center"> 
             <%= image_pack_tag("WTradelogo-2.png", width: "120", height: "100", :alt => "WTrade Logo") %>
         </div>
-        <h1 class="text-center mb-1 initialTitle">Calculate New Product </h1>
-      </div>
+
+      <h1 class="text-center mb-1 initialTitle">Update Calculation Product </h1>
+          </div>
+
       <div class="row mb-mr exchange-rates">          
         <%= form.label :exchange_rate, "Exchange Rate (USD-COP)", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
         <div class="col-sm-5 d-flex flex-row-revers justifying-input">
@@ -52,10 +54,10 @@
       </div>
         <br>
       <div class="row margins justify-content-center">           
-        <%= link_to 'Products', products_path, :class=> "btn btn-primary back col-sm-5", :remote => true %>
-        <%= form.submit "Calculate", :class=> "btn btn-success check col-sm-5" %>
+        <%= link_to 'Products', products_path, :class=> "btn btn-primary back col-sm-5", remote: true %>
+        <%= form.submit "Update", :class=> "btn btn-success check col-sm-5" %>
       </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
