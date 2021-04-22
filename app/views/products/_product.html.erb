@@ -1,0 +1,122 @@
+<div class="cardInitial" id="showProduct">
+  <div class="card">
+    <div class="headerInitial">
+      <div class="logo text-center"> 
+        <%= image_pack_tag("WTradelogo-2.png", width: "120", height: "100", :alt => "WTrade Logo") %>
+      </div>
+      <h1 class="text-center mb-4 initialTitle">Calculated Product </h1>
+    </div>
+    <div class="text-center mb-3 mt-5">    
+    <h2 id="resumen"> ACTION </h2>    
+      <% if @product.action == "BUY" %> 
+        <div class="product_action">
+          <%= @product.action %>
+        </div> 
+      <% else %>
+        <div class="product_action2">
+          <%= @product.action %>
+        </div>
+      <% end %> 
+    </div>
+    <hr class="my-3">
+    <div class="datos_ingresados mt-3 mb-3">     
+    <h3 class="d-flex justify-content-center mb-3">Inputed Data</h3>
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Name:</div> 
+          <div class="col">
+            <%= @product.name %>
+          </div>            
+        </div>
+      <div class="row justify-content-center mb-2">    
+        <div class="col-6 strong d-flex justifying-show-label ">Exchange Rate:</div> 
+        <div class="col">
+          <%= number_with_delimiter(@product.exchange_rate) %>
+        </div>            
+      </div>
+      <div class="row justify-content-center mb-2">    
+        <div class="col-6 strong d-flex justifying-show-label ">Value USD:</div> 
+        <div class="col">
+          <%= number_with_delimiter(@product.valor_usd)%>
+        </div>            
+      </div>
+      <div class="row justify-content-center mb-2">    
+        <div class="col-6 strong d-flex justifying-show-label "> Max Value COP:</div> 
+        <div class="col">
+          <%= number_with_delimiter(@product.valor_maximo_cop)%>
+        </div>            
+      </div>
+      <div class="row justify-content-center mb-2">    
+        <div class="col-6 strong d-flex justifying-show-label ">Weight (lb):</div> 
+        <div class="col">
+          <%= number_with_delimiter(@product.peso) %>
+        </div>            
+      </div>
+
+      <hr class="my-5">
+
+      <div class="datosCalculados">  
+        <h3 class="d-flex justify-content-center mb-3">Calculated Values</h3>
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Value COP:</div> 
+          <div class="col">
+            <%= number_with_delimiter(@product.valor_cop) %>
+          </div>            
+        </div>
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Tax:</div> 
+          <div class="col">
+            <%= number_with_delimiter(@product.impuesto) %>
+          </div>            
+        </div>   
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Insurance USD:</div> 
+          <div class="col">
+            <%=number_with_delimiter(@product.seguro) %>
+          </div>            
+        </div>
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Flete:</div> 
+          <div class="col">
+            <%= number_with_delimiter(@product.flete) %>
+          </div>            
+        </div>   
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Aduana:</div> 
+          <div class="col">
+            <%= number_with_delimiter(@product.aduana) %>
+          </div>            
+        </div>    
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Total Shipping USD:</div> 
+          <div class="col">
+            <%= number_to_currency(@product.total_envio_usd, format: "%n")%>
+          </div>            
+        </div>    
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Total Shipping COP:</div> 
+          <div class="col">
+            <%= number_to_currency(@product.total_envio_cop, format: "%n") %>
+          </div>            
+        </div>  
+        <div class="row justify-content-center mb-2">    
+          <div class="col-6 strong d-flex justifying-show-label ">Total Cost COP:</div> 
+          <div class="col">
+            <%= number_to_currency(@product.total_cost, format: "%n") %>
+          </div>            
+        </div> 
+      </div>
+    </div>
+    <div class="row margins justify-content-center">   
+      <%= link_to 'Products', products_path, :class=> "btn btn-success back col-sm-5",remote: true %>
+      <%= link_to 'Edit', edit_product_path(@product), :class=> "btn btn-primary edit col-sm-5", remote: true %>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+   <div class="row margins justify-content-center"> 
+    <%#= link_to 'Back to Products', products_path, :class=> "btn btn-primary back col-sm-5" %>
+    <%#= link_to 'Edit', edit_product_path(@product), :class=> "btn btn-primary edit col-sm-5"%> 
+  </div> -->
+

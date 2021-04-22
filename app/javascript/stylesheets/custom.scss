@@ -221,7 +221,7 @@ h1#h1Products {
 }
 
 div#newProduct {
- margin-top: 5%;
+ //margin-top: 5%;
  margin-bottom: 5%;
 }
 
@@ -265,6 +265,14 @@ div#newProduct {
   margin-top: 10% !important;
   margin-bottom: 10%;
 }
+
+
+/* INDEX STARTS HERE */
+#newProductLink{
+  //margin-left: 10%;
+  margin-bottom: 10%;
+}
+/* INDEX ENDS HERE */
 /* ========================================================= */
 /* ================  MEDIA QUERIES - PORTRAIT ============== */
 /* ========================================================= */
@@ -323,16 +331,11 @@ div#newProduct {
 
 .exchange-rates {
   margin-top: 15% !important;
-  color: red!important;
 }
 
 
 .justifying {
   justify-content: center;
-}
-
-.col-form-label {
-  color: red!important;
 }
 
 .form-control {

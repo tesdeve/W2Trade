@@ -1,0 +1,73 @@
+<div class="cardInitial" id="indexProducts">
+  <div class="card">
+    <div class="headerInitial">
+      <div class="logo text-center"> 
+        <%= image_pack_tag("WTradelogo-2.png", width: "120", height: "100", :alt => "WTrade Logo") %>
+      </div>
+      <h1 class="text-center mb-4 initialTitle">Products</h1>
+    </div>
+    <div class="table-responsive ">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Name</th>
+              <th>Exchange Rate</th>
+              <th>Value USD</th>
+          <!--<th>Max Value COP</th>
+              <th>Weight</th>
+              <th>Value COP</th>
+              <th>Tax</th>
+              <th>Insurance</th>
+              <th>Flete</th>
+              <th>Aduana</th>
+              <th>Total Shipping USD</th>
+              <th>Total Shipping COP</th> 
+              <th>Bought</th> -->
+              <th>Total Cost COP</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.action %></td>
+                <td><%= product.name %></td>
+                <td><%= number_to_currency(product.exchange_rate, format: "%n")  %></td>
+                <td><%= number_to_currency(product.valor_usd, format: "%n") %></td>
+            <!--<td><%#= number_to_currency(product.valor_maximo_cop, format: "%n") %></td>
+                <td><%= number_with_delimiter(product.peso) %></td>
+                <td><%#= number_to_currency(product.valor_cop, format: "%n") %></td>
+                <td><%#= number_to_currency(product.impuesto, format: "%n") %></td>
+                <td><%#= number_to_currency(product.seguro, format: "%n") %></td>
+                <td><%#= number_to_currency(product.flete, format: "%n") %></td>
+                <td><%#= number_to_currency(product.aduana, format: "%n") %></td>
+                <td><%#= number_to_currency(product.total_envio_usd, format: "%n")%></td>
+                <td><%#= number_to_currency(product.total_envio_cop, format: "%n")</td>
+                <td><%= product.bought %></td>  -->           
+                <td><%= product.total_cost %></td>            
+                <td><%= link_to 'Show', product, remote: true %></td>
+                <td><%= link_to 'Edit', edit_product_path(product), remote: true %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  <div id="newProductLink">
+  <%= link_to 'New Product', new_product_path, :class=> "btn btn-primary lnkNewProduct my-4", remote: true %>
+</div>
+</div>
+
+
+
+
+
+<%#= link_to 'New Product', new_product_path %>
+
+<%#= render 'form', product: @product %>
+
+
+

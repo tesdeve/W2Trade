@@ -1,0 +1,12 @@
+//alert("CREATE!!")
+
+$('br').remove()
+// Removes any form
+$(".primerForm").remove()
+
+//Shows the Product
+$('#allViews').append('<%= j render(@product) %>')
+$('html, body').animate({
+	scrollTop: $("#resumen").offset().top
+});
+

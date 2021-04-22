@@ -12,11 +12,11 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
+require("jquery")
 require.context('../images', true)
 
 
-// To add Bootstrap and enable tooltips and popovers everywere. From HERE
+// ADDING BOOTSTRAP PART STARTS HERET -- and enable tooltips and popovers everywere
 
 import * as bootstrap from 'bootstrap'
 import "../stylesheets/application.scss"
@@ -59,12 +59,6 @@ require("service_workers")
 //  });
 //});
 // FINIDH SERVICE WORKER REGISTRATION
-
-
-// self.addEventListener('install', function(event) {
-//   self.skipWaiting();
-// });
-
 
 
 
