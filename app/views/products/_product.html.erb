@@ -8,25 +8,17 @@
     </div>
     <div class="text-center mb-3 mt-5">    
     <h2 id="resumen"> ACTION </h2>    
-      <% if @product.action == "BUY" %> 
-        <div class="product_action">
-          <%= @product.action %>
-        </div> 
-      <% else %>
-        <div class="product_action2">
-          <%= @product.action %>
-        </div>
-      <% end %> 
+      <%= render "actionMessage" %>
     </div>
     <hr class="my-3">
     <div class="datos_ingresados mt-3 mb-3">     
     <h3 class="d-flex justify-content-center mb-3">Inputed Data</h3>
-        <div class="row justify-content-center mb-2">    
-          <div class="col-6 strong d-flex justifying-show-label ">Name:</div> 
-          <div class="col">
-            <%= @product.name %>
-          </div>            
-        </div>
+      <div class="row justify-content-center mb-2">    
+        <div class="col-6 strong d-flex justifying-show-label ">Name:</div> 
+        <div class="col">
+          <%= @product.name %>
+        </div>            
+      </div>
       <div class="row justify-content-center mb-2">    
         <div class="col-6 strong d-flex justifying-show-label ">Exchange Rate:</div> 
         <div class="col">
@@ -34,13 +26,13 @@
         </div>            
       </div>
       <div class="row justify-content-center mb-2">    
-        <div class="col-6 strong d-flex justifying-show-label ">Value USD:</div> 
+        <div class="col-6 strong d-flex justifying-show-label ">Product Value USD:</div> 
         <div class="col">
           <%= number_with_delimiter(@product.valor_usd)%>
         </div>            
       </div>
       <div class="row justify-content-center mb-2">    
-        <div class="col-6 strong d-flex justifying-show-label "> Max Value COP:</div> 
+        <div class="col-6 strong d-flex justifying-show-label ">Maximum Value COP:</div> 
         <div class="col">
           <%= number_with_delimiter(@product.valor_maximo_cop)%>
         </div>            
