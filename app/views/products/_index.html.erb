@@ -32,10 +32,11 @@
           <tbody>
             <% @products.each do |product| %>
               <tr>
-                <td><%= product.action %></td>
-                <td><%= product.name %></td>
-                <td><%= number_to_currency(product.exchange_rate, format: "%n")  %></td>
-                <td><%= number_to_currency(product.valor_usd, format: "%n") %></td>
+                <td class="text-center"><%= product.action %></td>
+                <td class="text-center"><%= product.name %></td>
+                <td class="text-center"><%= number_to_currency(product.exchange_rate, format: "%n")  %></td>
+                <td class="text-center"><%= number_with_delimiter(product.valor_usd)%></td> 
+                <%#= number_to_currency(product.valor_usd, format: "%n") %>
             <!--<td><%#= number_to_currency(product.valor_maximo_cop, format: "%n") %></td>
                 <td><%= number_with_delimiter(product.peso) %></td>
                 <td><%#= number_to_currency(product.valor_cop, format: "%n") %></td>
@@ -46,7 +47,7 @@
                 <td><%#= number_to_currency(product.total_envio_usd, format: "%n")%></td>
                 <td><%#= number_to_currency(product.total_envio_cop, format: "%n")</td>
                 <td><%= product.bought %></td>  -->           
-                <td><%= product.total_cost %></td>            
+                <td class="text-center"><%= number_with_delimiter(product.total_cost) %></td>            
                 <td><%= link_to 'Show', product, remote: true %></td>
                 <td><%= link_to 'Edit', edit_product_path(product), remote: true %></td>
                 <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

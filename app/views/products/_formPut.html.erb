@@ -28,17 +28,17 @@
           <%= form.text_field :exchange_rate, :value =>"#{@rate}", :class=> "form-control form-control-lg " %>  
         </div>   
       </div>
-      <div class="row mb-mr">
-        <%= form.label :valor_maximo_cop, "Maximum Value COP", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>              
-        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
-          <%= form.text_field :valor_usd, :class=> "form-control form-control-lg " %>  
-        </div>   
-      </div>
       <div class="row mb-mr"> 
         <%= form.label :valor_usd, "Product Value USD", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   
         <div class="col-sm-5 d-flex flex-row-revers justifying-input">
           <%= form.text_field :valor_usd, :class=> "form-control form-control-lg " %>  
         </div>
+      </div>      
+      <div class="row mb-mr">
+        <%= form.label :valor_maximo_cop, "Maximum Value COP", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>              
+        <div class="col-sm-5 d-flex flex-row-revers justifying-input">
+          <%= form.text_field :valor_maximo_cop, :class=> "form-control form-control-lg " %>  
+        </div>   
       </div>
       <div class="row mb-mr">
         <%= form.label :peso, "Weight (lb)", :class => "strong col-sm-6 col-form-label col-form-label-lg d-flex justifying" %>   

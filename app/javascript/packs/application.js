@@ -12,10 +12,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("jquery")
 require.context('../images', true)
 
 
+require("jquery")
 // ADDING BOOTSTRAP PART STARTS HERET -- and enable tooltips and popovers everywere
 
 import * as bootstrap from 'bootstrap'
